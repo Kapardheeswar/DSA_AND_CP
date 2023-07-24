@@ -39,7 +39,7 @@ int main(){
         graph[v].push_back(u);
         cin>>u>>v;
     }
-    cout<<getMaxPairs(graph,n);
+    cout<<getMaxPairs(graph,n)<<endl;
 }
 /*
  * 5

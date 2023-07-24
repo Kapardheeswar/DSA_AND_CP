@@ -25,5 +25,5 @@ int countSubArrayProductLessThanK(const vector<int> &a, int n, long long k) {
 
 int main() {
     vector<int> a = {1, 2, 3, 4};
-    cout << countSubArrayProductLessThanK(a, a.size(), 10);
+    cout << countSubArrayProductLessThanK(a, a.size(), 10)<<endl;
 }
