@@ -52,7 +52,7 @@ int coinChangeBU(vector<int> coins, int targetSum) {
 
 int main() {
     cout << coinChange({1, 5, 7, 10}, 16) << endl;
-    cout << coinChangeBU({1, 5, 7, 10}, 16)<<endl;
-    vector<int> dp(17, 0);
-    cout<<coinChangeTD({1,5,7,10},16,dp);
+    cout << coinChangeBU({3,6},10)<<endl;
+    vector<int> dp(3, 0);
+    cout<<coinChangeTD({3,6},10,dp);
 }

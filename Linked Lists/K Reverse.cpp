@@ -4,11 +4,11 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-struct node {
+struct Node {
     int data;
-    node *next;
+    Node *next;
 };
-typedef node *lptr;
+typedef Node *lptr;
 
 lptr findend(lptr l) {
     if (l->next == NULL) {
@@ -17,21 +17,21 @@ lptr findend(lptr l) {
     findend(l->next);
 }
 
-void addend(lptr &l, int data) {
-    if (l == NULL) {
-        l = new(node);
-        l->data = data;
-        l->next = NULL;
-        return;
-    }
-    lptr e, f;
-    e = new(node);
-    e->data = data;
-    e->next = NULL;
-    f = findend(l);
-    f->next = e;
-    return;
-}
+//void addend(lptr &l, int data) {
+//    if (l == NULL) {
+//        l = new(node);
+//        l->data = data;
+//        l->next = NULL;
+//        return;
+//    }
+//    lptr e, f;
+//    e = new(node);
+//    e->data = data;
+//    e->next = NULL;
+//    f = findend(l);
+//    f->next = e;
+//    return;
+//}
 
 void printList(lptr l) {
     if (l->next == NULL) {
@@ -67,4 +67,30 @@ lptr kReverse(lptr head, int k) {
         }
     }
     return prev;
+}
+
+int main() {
+    lptr l = new Node;
+    l->data = 1;
+    l->next = NULL;
+    lptr l1 = new Node;
+    l1->data = 2;
+    l1->next = NULL;
+    lptr l2 = new Node;
+    l2->data = 3;
+    l2->next = NULL;
+    lptr l3 = new Node;
+    l3->data = 4;
+    l3->next = NULL;
+    lptr l4 = new Node;
+    l4->data = 5;
+    l4->next = NULL;
+    l->next = l1;
+    l1->next = l2;
+    l2->next = l3;
+    l3->next = l4;
+    printList(l);
+    cout<<endl;
+    lptr small = kReverse(l,2);
+    printList(small);
 }

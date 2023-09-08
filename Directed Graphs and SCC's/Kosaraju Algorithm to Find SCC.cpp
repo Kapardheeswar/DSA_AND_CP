@@ -50,12 +50,14 @@ vector<vector<int>> getSCC(int n, const vector<vector<int>> &edges) {
 }
 
 int main() {
-    vector<vector<int>> SCC = getSCC(4, {{1, 2},
-                                         {2, 3},
-                                         {3, 1},
-                                         {3, 4}});
+    vector<vector<int>> SCC = getSCC(5, {{2,1},
+                                         {1,3},
+                                         {3,2},
+                                         {1,4},
+                                         {4,5}});
     for (auto v: SCC) {
         for (auto k: v) cout << k << " ";
         cout << endl;
     }
+    cout<<SCC.size();
 }

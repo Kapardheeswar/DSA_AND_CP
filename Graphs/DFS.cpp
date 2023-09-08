@@ -1,30 +1,22 @@
-//
-// Created by kapar on 16-07-2023.
-//
+#include <vector>
 #include <bits/stdc++.h>
-
 using namespace std;
+int findMaxLength(const std::vector<int>& skills, int k) {
+    int n = skills.size();
+    std::vector<int> dp(n, 1);
 
-void DFS(vector<vector<int>> graph, int u, map<int, bool> &visited) {
-    visited[u] = true;
-    cout << u << " ";
-    for (auto i: graph[u]) {
-        if (!visited[i]) DFS(graph, i, visited);
+    for (int i = 1; i < n; ++i) {
+        int maxLen = 1;  // Maximum length of subsequence found so far within the window
+        for (int j = i - 1; j >= std::max(i - k, 0); --j) {
+            if (skills[i] != skills[j]) {
+                maxLen = std::max(maxLen, dp[j] + 1);
+            }
+        }
+        dp[i] = maxLen;
     }
-    return;
+
+    return *std::max_element(dp.begin(), dp.end());
 }
-
-int main() {
-    int n;
-    cin >> n;
-    vector<vector<int>> graph(n, vector<int>());
-    int u, v;
-    cin >> u >> v;
-    while (u != -1 and v != -1) {
-        graph[u].push_back(v);
-        graph[v].push_back(u);
-        cin >> u >> v;
-    }
-    map<int, bool> visited;
-    DFS(graph, 1, visited);
+int main(){
+    cout<< findMaxLength({1,1,2,3},1);
 }

@@ -28,7 +28,7 @@ int LIS(vector<int>v){
     return len;
 }
 int main(){
-    vector<int>v = {50,4,10,8,30,100};
+    vector<int>v = {10,9,2,5,3,7,101,18};
     cout<<LIS(v)<<endl;
     cout<<LIS(v,0,-1);
 }
