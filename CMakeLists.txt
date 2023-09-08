@@ -26,4 +26,5 @@ add_executable(Programming
         "CSES/Dynamic Programming/removing_digits.cpp"
         "Day-11 Binary Search/Koko Eating Bananas.cpp"
         test/test1.cpp
-        test/test2.cpp)
+        test/test2.cpp
+        "DP-I/word break.cpp")
