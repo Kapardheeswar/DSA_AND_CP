@@ -27,4 +27,14 @@ add_executable(Programming
         "Day-11 Binary Search/Koko Eating Bananas.cpp"
         test/test1.cpp
         test/test2.cpp
-        "DP-I/word break.cpp")
+        "DP-I/word break.cpp"
+        "CSES/Dynamic Programming/gridPaths.cpp"
+        "CSES/Dynamic Programming/Book Shop.cpp"
+        "CSES/Dynamic Programming/Array Description.cpp"
+        "Amazon/Asteroids Colisions.cpp"
+        "Amazon/Best Time To Buy and Sell Stock With Cooldown.cpp"
+        "Amazon/Max Sum No Consecutive Subset.cpp"
+        "Amazon/Construction of BST From PostOrder.cpp"
+        "Binary Search Trees/Lowest Common Ancestor.cpp"
+        "Graphs/Prims MST.cpp"
+        "Graphs/Krushkal's MST.cpp")

@@ -47,36 +47,39 @@ int getSum(btptr t) {
     return getSum(t->left) + t->data + getSum(t->right);
 }
 
-void replaceWithDescendentSum(btptr &t) {
-    if (t == NULL)return;
-    if (t->left == NULL and t->right == NULL) return;
-    t->data = getSum(t->left) + getSum(t->right);
-    replaceWithDescendentSum(t->left);
-    replaceWithDescendentSum(t->right);
+int replaceWithDescendentSum(btptr &t) {
+    if (t == NULL)return 0;
+    if (t->left == NULL and t->right == NULL) return t->data;
+    int LS = replaceWithDescendentSum(t->left);
+    int RS = replaceWithDescendentSum(t->right);
+    int temp = t->data;
+    t->data = LS + RS;
+    return temp + t->data;
 }
-void levelOrderPrint(btptr t){
-    if(t==NULL) return;
-    queue<btptr>q;
+
+void levelOrderPrint(btptr t) {
+    if (t == NULL) return;
+    queue<btptr> q;
     q.push(t);
     q.push(NULL);
-    while(!q.empty()){
+    while (!q.empty()) {
         btptr s = q.front();
         q.pop();
-        if(s!=NULL){
-            cout<<s->data<<" ";
-            if(s->left!=NULL){
+        if (s != NULL) {
+            cout << s->data << " ";
+            if (s->left != NULL) {
                 q.push(s->left);
             }
-            if(s->right!=NULL){
+            if (s->right != NULL) {
                 q.push(s->right);
             }
-        }
-        else{
-            cout<<"\n";
-            if(!q.empty()) q.push(NULL);
+        } else {
+            cout << "\n";
+            if (!q.empty()) q.push(NULL);
         }
     }
 }
+
 int main() {
     vector<int> v = {1, 2, 4, -1, -1, 5, 7, -1, -1, -1, 3, -1, 6, -1, -1};
     btptr s = NULL;
@@ -86,6 +89,6 @@ int main() {
     cout << endl;
     replaceWithDescendentSum(s);
     inorder(s);
-    cout<<endl;
+    cout << endl;
     levelOrderPrint(s);
 }

@@ -42,47 +42,47 @@ void inorder(btptr s) {
     inorder(s->right);
 }
 
-void printLevel(btptr t,int currentLevel,int reqLevel){
-    if(t==NULL) return;
-    if(currentLevel==reqLevel) cout<<t->data<<" ";
-    printLevel(t->left,currentLevel+1,reqLevel);
-    printLevel(t->right,currentLevel+1,reqLevel);
+void printLevel(btptr t, int currentLevel, int reqLevel) {
+    if (t == NULL) return;
+    if (currentLevel == reqLevel) cout << t->data << " ";
+    printLevel(t->left, currentLevel + 1, reqLevel);
+    printLevel(t->right, currentLevel + 1, reqLevel);
 }
-int nodesAtDistanceK(btptr t,int target,int dist){
+
+int nodesAtDistanceK(btptr t, int target, int dist) {
     // this function returns distance from currentNode to targetNode
-    if(t==NULL) return -1;
-    if(t->data==target) {
-        printLevel(t,0,dist);
+    if (t == NULL) return -1;
+    if (t->data == target) {
+        printLevel(t, 0, dist);
         return 0;
     }
-    int DL = nodesAtDistanceK(t->left,target,dist);
-    if(DL!=-1){
-        if(1+DL==dist){
-            cout<<t->data<<" ";
+    int DL = nodesAtDistanceK(t->left, target, dist);
+    if (DL != -1) {
+        if (1 + DL == dist) {
+            cout << t->data << " ";
+        } else {
+            printLevel(t->right, 0, dist - 2 - DL);
         }
-        else{
-            printLevel(t->right,0,dist-2-DL);
-        }
-        return 1+DL;
+        return 1 + DL;
     }
-    int DR = nodesAtDistanceK(t->right,target,dist);
-    if(DR!=-1){
-        if(1+DR==dist){
-            cout<<t->data<<" ";
+    int DR = nodesAtDistanceK(t->right, target, dist);
+    if (DR != -1) {
+        if (1 + DR == dist) {
+            cout << t->data << " ";
+        } else {
+            printLevel(t->left, 0, dist - 2 - DR);
         }
-        else{
-            printLevel(t->left,0,dist-2-DR);
-        }
-        return 1+DR;
+        return 1 + DR;
     }
     return -1;
 }
-int main(){
-    vector<int> v3 = {0, 2, -1, -1, 1, 3, -1, -1, -1};
+
+int main() {
+    vector<int> v3 = {1, 2, 4, -1, -1, 5, 7, -1, -1, 8, 9, -1, -1, 10, -1, -1, 3, -1, 6, -1, -1};
     btptr s = NULL;
     int i = 0;
     s = createBTWithVector(s, v3, i);
     inorder(s);
     cout << endl;
-    nodesAtDistanceK(s,3,3);
+    nodesAtDistanceK(s, 5,2);
 }
