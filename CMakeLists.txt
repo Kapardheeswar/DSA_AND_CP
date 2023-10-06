@@ -38,4 +38,12 @@ add_executable(Programming
         "Binary Search Trees/Lowest Common Ancestor.cpp"
         "Graphs/Prims MST.cpp"
         "Graphs/Krushkal's MST.cpp"
-        "Sorting Techniques/Radix Sort.cpp")
+        "Sorting Techniques/Radix Sort.cpp"
+        CHECK/shit.cpp
+        "CSES/Graph Problems/building_teams.cpp"
+        "CSES/Sorting and Searching/Sum of Two Values.cpp"
+        "Amazon/Count Of Fautly Servers.cpp"
+        "Amazon/pth Factor.cpp"
+        "My Exams/Maximal Square.cpp"
+        Amazon/test.cpp
+        "Sorting Techniques/Insertion Sort.cpp")

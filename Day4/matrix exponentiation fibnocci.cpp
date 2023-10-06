@@ -35,7 +35,9 @@ struct Mat {
     }
 };
 
-int fib(int n) {
+int/***/
+
+fib(int n) {
     Mat res;
     res.identity();
     Mat t;
@@ -49,6 +51,8 @@ int fib(int n) {
     }
     return (res.m[0][0] + res.m[0][1] + mod) % mod;
 }
+
+/***/
 
 int32_t main() {
     int t;

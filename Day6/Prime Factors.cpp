@@ -4,7 +4,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 void primeFact(int n){
-    ofstream output_file("output.txt");
     for (int i = 2; i*i < n; i++) {
         if(n%i==0){
             int cnt=0;
@@ -12,13 +11,12 @@ void primeFact(int n){
                 cnt++;
                 n/=i;
             }
-            output_file<<i<<"^"<<cnt<<",";
+            cout<<i<<"^"<<n<<",";
         }
     }
     if(n!=1){
-        output_file<<n<<"^"<<"1"<<" ";
+        cout<<n<<"^"<<"1"<<" ";
     }
-    output_file.close();
 }
 int main(){
     primeFact(99);

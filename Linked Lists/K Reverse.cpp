@@ -32,7 +32,6 @@ lptr findend(lptr l) {
 //    f->next = e;
 //    return;
 //}
-
 void printList(lptr l) {
     if (l->next == NULL) {
         cout << l->data << endl;
@@ -41,6 +40,7 @@ void printList(lptr l) {
     cout << l->data << "-->";
     printList(l->next);
 }
+
 int countNodes(lptr l) {
     if (l == NULL) return 0;
     return 1 + countNodes(l->next);
@@ -62,7 +62,7 @@ lptr kReverse(lptr head, int k) {
         int remainingNodes = countNodes(temp);
         if (remainingNodes >= 3)
             head->next = kReverse(temp, k);
-        else{
+        else {
             head->next = temp;
         }
     }
@@ -90,7 +90,7 @@ int main() {
     l2->next = l3;
     l3->next = l4;
     printList(l);
-    cout<<endl;
-    lptr small = kReverse(l,2);
+    cout << endl;
+    lptr small = kReverse(l, 2);
     printList(small);
 }

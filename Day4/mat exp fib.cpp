@@ -2,6 +2,7 @@
 // Created by kapar on 11-06-2023.
 //
 #include<bits/stdc++.h>
+
 #define int long long int
 using namespace std;
 
@@ -10,15 +11,18 @@ const int sz = 2;
 
 struct Mat {
     int m[sz][sz];
+
     Mat() {
         memset(m, 0, sizeof(m));
     }
+
     void identity() {
         for (int i = 0; i < sz; i++) {
             m[i][i] = 1;
         }
     }
-    Mat operator* (Mat a) {
+
+    Mat operator*(Mat a) {
         Mat res;
         for (int i = 0; i < sz; i++) {
             for (int j = 0; j < sz; j++) {
@@ -51,8 +55,7 @@ int Fib(int n) {
     return (res.m[0][0] + res.m[0][1]) % mod;
 }
 
-int32_t main()
-{
+int32_t main() {
 
     int n = 10;
 
